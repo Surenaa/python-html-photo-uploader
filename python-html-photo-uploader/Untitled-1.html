@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Text File Uploader</title>
+  <script>
+    function handleFileSelect(event) {
+      var file = event.target.files[0];
+      var reader = new FileReader();
+      
+      reader.onload = function(event) {
+        var contents = event.target.result;
+        document.getElementById('fileContent').textContent = contents;
+      };
+      
+      reader.readAsText(file);
+    }
+  </script>
+</head>
+<body>
+  <h1>Text File Uploader</h1>
+  
+  <input type="file" id="fileInput" accept=".txt" onchange="handleFileSelect(event)">
+  
+  <h2>File Content:</h2>
+  <pre id="fileContent"></pre>
+</body>
+</html>
